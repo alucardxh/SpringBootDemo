@@ -3,30 +3,29 @@ server:
 
 spring:
   datasource:
+    #JDBC 配置
+    url: jdbc:mysql://192.168.0.211/acceptance?useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: reallove
     druid:
-      driver_class_name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.0.211/acceptance?useUnicode=true&characterEncoding=UTF-8
-      username: root
-      password: reallove
-      # 使用druid数据源
-      type: com.alibaba.druid.pool.DruidDataSource
+      # druid连接池配置
+      initial-size: 10
+      min-idle: 1
+      max-active: 30
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20 #和max-pool-prepared-statement-per-connection-size=等价
+      validation-query: select 'x'
+      # validation-query-timeout=
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      # max-evictable-idle-time-millis=
       filters: stat
-      maxActive: 30
-      initialSize: 10
-      maxWait: 60000
-      minIdle: 1
-      timeBetweenEvictionRunsMillis: 60000
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: select 'x'
-      testWhileIdle: true
-      testOnBorrow: false
-      testOnReturn: false
-      poolPreparedStatements: true
-      maxOpenPreparedStatements: 20
 mybatis:
-  # mapper-locations: classpath:mapping/*.xml
+  mapper-locations: classpath:com/example/demo/repository/mapper/*.xml
   type-aliases-package: com.example.demo.repository.entity
   # configLocation: classpath:mybatis-config.xml
-  global-config:
-      idType: 1
-      refresh-mapper: true
