@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.mapper.HostManageMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.example.demo.repository.entity.HostManage">
+		<id column="id" property="id" />
+		<result column="log_id" property="logId" />
+		<result column="terminal_start" property="terminalStart" />
+		<result column="terminal_end" property="terminalEnd" />
+		<result column="terminal_serial" property="terminalSerial" />
+		<result column="terminal_num" property="terminalNum" />
+		<result column="mer_no" property="merNo" />
+		<result column="mer_name" property="merName" />
+		<result column="property_right" property="propertyRight" />
+		<result column="storage_source" property="storageSource" />
+		<result column="storage_batch" property="storageBatch" />
+		<result column="agreement_num" property="agreementNum" />
+		<result column="purchase_price" property="purchasePrice" />
+		<result column="terminal_amount" property="terminalAmount" />
+		<result column="storage_institution" property="storageInstitution" />
+		<result column="terminal_type" property="terminalType" />
+		<result column="manufacturer_name" property="manufacturerName" />
+		<result column="manufacturer_code" property="manufacturerCode" />
+		<result column="status" property="status" />
+		<result column="storage_time" property="storageTime" />
+		<result column="outdepot_time" property="outdepotTime" />
+		<result column="create_time" property="createTime" />
+		<result column="modify_time" property="modifyTime" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, log_id AS logId, terminal_start AS terminalStart, terminal_end AS terminalEnd, terminal_serial AS terminalSerial, terminal_num AS terminalNum, mer_no AS merNo, mer_name AS merName, property_right AS propertyRight, storage_source AS storageSource, storage_batch AS storageBatch, agreement_num AS agreementNum, purchase_price AS purchasePrice, terminal_amount AS terminalAmount, storage_institution AS storageInstitution, terminal_type AS terminalType, manufacturer_name AS manufacturerName, manufacturer_code AS manufacturerCode, status, storage_time AS storageTime, outdepot_time AS outdepotTime, create_time AS createTime, modify_time AS modifyTime
+    </sql>
+
+</mapper>
