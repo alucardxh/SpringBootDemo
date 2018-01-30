@@ -12,5 +12,6 @@ public class DemoApplication {
 		//System.setProperty("spring.devtools.restart.enabled", "false");
 		SpringApplication.run(DemoApplication.class, args);
 		//哈哈
+		//嘻嘻
 	}
 }
