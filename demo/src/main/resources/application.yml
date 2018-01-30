@@ -1,7 +1,19 @@
 server:
   port: 8081
+  context-path: /
 
 spring:
+  http:
+    multipart:
+        max-file-size: 100MB
+        max-request-size: 100MB
+        enabled: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  # 指定静态资源的路径
+  resources:
+    static-locations: classpath:/static/,classpath:/views/
   datasource:
     #JDBC 配置
     url: jdbc:mysql://192.168.0.211/acceptance?useUnicode=true&characterEncoding=UTF-8
