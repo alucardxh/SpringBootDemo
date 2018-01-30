@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.entity.GlobalConfiguration;
 import com.baomidou.mybatisplus.enums.DBType;
 import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
-import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
+//import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,9 +15,9 @@ import javax.sql.DataSource;
 @Configuration()
 @MapperScan("com.example.demo.repository.mapper*")
 public class MybatisPlusConfig {
-
 	/**
-	 *	 mybatis-plus分页插件
+	 * 分页插件注入
+	 * @return
 	 */
 	@Bean
 	public PaginationInterceptor paginationInterceptor() {
@@ -25,13 +25,12 @@ public class MybatisPlusConfig {
 		page.setDialectType("mysql");
 		return page;
 	}
-	
 	/**
 	 * 这里全部使用mybatis-autoconfigure 已经自动加载的资源。不手动指定
 	 * 配置文件和mybatis-boot的配置文件同步
-	 * @return
-	 */
-	@Bean
+	 * @return*/
+
+	/*@Bean
 	public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean(DataSource dataSource) {
 		//设置数据源
 		MybatisSqlSessionFactoryBean mybatisPlus = new MybatisSqlSessionFactoryBean();
@@ -47,5 +46,5 @@ public class MybatisPlusConfig {
 
 		mybatisPlus.setGlobalConfig(globalConfig);
 		return mybatisPlus;
-	}
+	}*/
 }
