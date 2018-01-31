@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import com.baomidou.mybatisplus.entity.GlobalConfiguration;
 import com.baomidou.mybatisplus.enums.DBType;
+import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 //import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
@@ -15,9 +16,21 @@ import javax.sql.DataSource;
 @Configuration()
 @MapperScan("com.example.demo.repository.mapper*")
 public class MybatisPlusConfig {
+
+
+
 	/**
-	 * 分页插件注入
-	 * @return
+	 * mybatis-plus SQL执行效率插件【生产环境可以关闭】
+	 */
+	/*@Bean
+	public PerformanceInterceptor performanceInterceptor() {
+		return new PerformanceInterceptor();
+	}*/
+
+
+	/**
+	 * mybatis-plus分页插件<br>
+	 * 文档：http://mp.baomidou.com<br>
 	 */
 	@Bean
 	public PaginationInterceptor paginationInterceptor() {

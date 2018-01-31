@@ -5,7 +5,13 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.example.demo.repository.entity.Admin;
 import com.example.demo.repository.entity.HostManage;
 import com.example.demo.service.HostService;
+import com.example.demo.service.LoginService;
 import com.example.demo.service.pojo.HostCondition;
+import com.example.demo.service.pojo.Result;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +28,10 @@ public class HelloController {
 
     @Autowired
     private HostService hostService;
+
+
+    @Autowired
+    private LoginService loginService;
 
     @RequestMapping("/hello")
     public Object hello() {
@@ -55,5 +65,23 @@ public class HelloController {
         }
         return pages;
     }
+
+
+
+    @RequestMapping("/api/login")
+    public Object login(String name,String password) {
+        Result result = new Result(true);
+        try {
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(new UsernamePasswordToken("admin", "12cc3e75a7b0b684553e5ad7a34d1dee"));
+        }catch (AuthenticationException e){
+            e.printStackTrace();
+            result.setSuccess(false);
+        }
+        return result;
+    }
+
+
+
 
 }
