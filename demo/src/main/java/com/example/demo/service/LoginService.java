@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.example.demo.repository.entity.Admin;
 import com.example.demo.repository.entity.Function;
-import com.example.demo.service.pojo.Result;
+import com.example.demo.common.bean.Result;
 
 /**
  * Created by xiaoh on 2018/1/22.

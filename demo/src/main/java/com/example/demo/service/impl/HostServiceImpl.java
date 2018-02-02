@@ -7,7 +7,7 @@ import com.example.demo.repository.entity.HostManage;
 import com.example.demo.repository.mapper.HostManageMapper;
 import com.example.demo.service.HostService;
 import com.example.demo.service.pojo.HostCondition;
-import com.example.demo.utils.IDGeneratorUtils;
+import com.example.demo.common.utils.IDGeneratorUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

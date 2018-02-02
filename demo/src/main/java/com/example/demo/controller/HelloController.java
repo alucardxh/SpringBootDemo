@@ -2,19 +2,20 @@ package com.example.demo.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.example.demo.common.bean.TestObject;
 import com.example.demo.repository.entity.Admin;
 import com.example.demo.repository.entity.HostManage;
 import com.example.demo.service.HostService;
 import com.example.demo.service.LoginService;
 import com.example.demo.service.pojo.HostCondition;
-import com.example.demo.service.pojo.Result;
+import com.example.demo.common.bean.Result;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -69,15 +70,17 @@ public class HelloController {
 
 
     @RequestMapping("/api/login")
-    public Object login(String name,String password) {
+    public Object login(@RequestBody TestObject testObject) {
         Result result = new Result(true);
-        try {
+        System.out.println(testObject+"实际传入的对象");
+
+        /*try {
             Subject subject = SecurityUtils.getSubject();
             subject.login(new UsernamePasswordToken("admin", "12cc3e75a7b0b684553e5ad7a34d1dee"));
         }catch (AuthenticationException e){
             e.printStackTrace();
             result.setSuccess(false);
-        }
+        }*/
         return result;
     }
 

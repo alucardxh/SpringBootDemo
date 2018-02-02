@@ -1,4 +1,4 @@
-package com.example.demo.service.pojo;
+package com.example.demo.common.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.common.generator;
 
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;

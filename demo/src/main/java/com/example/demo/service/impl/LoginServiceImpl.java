@@ -6,7 +6,7 @@ import com.example.demo.repository.entity.Function;
 import com.example.demo.repository.mapper.AdminMapper;
 import com.example.demo.repository.mapper.FunctionMapper;
 import com.example.demo.service.LoginService;
-import com.example.demo.service.pojo.Result;
+import com.example.demo.common.bean.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
