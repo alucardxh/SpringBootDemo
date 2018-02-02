@@ -1,4 +1,4 @@
-package com.example.demo.common.config;
+package com.example.demo.common.config.db;
 
 import com.baomidou.mybatisplus.entity.GlobalConfiguration;
 import com.baomidou.mybatisplus.enums.DBType;

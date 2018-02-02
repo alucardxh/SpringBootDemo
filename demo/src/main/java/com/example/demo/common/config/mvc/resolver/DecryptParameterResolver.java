@@ -1,4 +1,4 @@
-package com.example.demo.common.resolver;
+package com.example.demo.common.config.mvc.resolver;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.example.demo.common.config;
+package com.example.demo.common.config.mvc.converters;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
