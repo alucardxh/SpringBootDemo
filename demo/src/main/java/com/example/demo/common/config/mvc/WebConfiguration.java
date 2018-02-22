@@ -9,6 +9,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.socket.WebSocketHandler;
+import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+import org.springframework.web.socket.server.HandshakeInterceptor;
+import org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor;
 
 import java.util.List;
 
@@ -16,7 +21,7 @@ import java.util.List;
  * Created by xiaoh on 2018/2/1.
  */
 @Configuration
-public class WebConfiguration extends WebMvcConfigurerAdapter {
+public class WebConfiguration extends WebMvcConfigurerAdapter implements WebSocketConfigurer {
 
     @Autowired
     private LoginInterceptor loginInterceptor;
@@ -44,6 +49,20 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     }
 
 
+    //webSocket控制器
+    @Autowired
+    private WebSocketHandler webSocketHandler;
 
+    //webSocket拦截器
+    @Autowired
+    private HandshakeInterceptor handshakeInterceptor;
 
+    //webSocketSession拦截器
+    @Autowired
+    private HttpSessionHandshakeInterceptor httpSessionHandshakeInterceptor;
+
+    @Override
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        registry.addHandler(webSocketHandler, "/socket2/**").addInterceptors(handshakeInterceptor,httpSessionHandshakeInterceptor).withSockJS();
+    }
 }
